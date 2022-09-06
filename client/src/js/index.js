@@ -1,7 +1,7 @@
 i; // Import modules
 import "./form";
 import "./submit";
-
+import { initdb } from "./database";
 // Import CSS files
 import "../css/index.css";
 //import bootstrap
@@ -14,6 +14,7 @@ import Dog from "../images/dog.png";
 
 // Add images on load
 window.addEventListener("load", function () {
+  initdb();
   document.getElementById("logo").src = Logo;
   document.getElementById("bearThumbnail").src = Bear;
   document.getElementById("dogThumbnail").src = Dog;
