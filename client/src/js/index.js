@@ -1,4 +1,4 @@
-i; // Import modules
+// Import modules
 import "./form";
 import "./submit";
 import { initdb, getDb, postDb, deleteDb, editDb } from "./database";
@@ -13,12 +13,12 @@ import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
 //import fetchCards
 import { fetchCards } from "./cards";
-import { format } from "path";
+// import { format } from "path";
 // Add images on load
 window.addEventListener("load", function () {
   initdb();
   fetchCards();
-
+  console.log("Logo", Logo);
   document.getElementById("logo").src = Logo;
   document.getElementById("bearThumbnail").src = Bear;
   document.getElementById("dogThumbnail").src = Dog;
@@ -37,7 +37,7 @@ window.editCard = (e) => {
   document.getElementById("email").value = editEmail;
   document.getElementById("phone").value = editPhone;
 
-  format.style.display = "block";
+  //   format.style.display = "block";
 
   //toggles the Submit button so that it now Updates an existing contact instead of posting a new one
   submitBtnToUpdate = true;
