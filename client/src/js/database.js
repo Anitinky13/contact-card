@@ -1,7 +1,7 @@
 import { openDB } from "idb";
 import "regenerator-runtime/runtime";
 
-export const initdb = async () => {
+export const initdb = async () =>
   // We are creating a new database named 'contact_db' which will be using version 1 of the database.
   openDB("contact_db", 1, {
     // Add our database schema if it has not already been initialized.
@@ -10,17 +10,19 @@ export const initdb = async () => {
         console.log("contacts store already exists");
         return;
       }
-      // Create a new object store for the data and give it a key name of 'id' which will increment automatically
+      // Create a new object store for the data and give it an key name of 'id' which needs to increment automatically.
       db.createObjectStore("contacts", { keyPath: "id", autoIncrement: true });
       console.log("contacts store created");
     },
   });
-};
+
+// Exported READ function
+
 // Export a function we will use to GET to the database.
 export const getDb = async () => {
   console.log("GET from the database");
 
-  // Create a connection to the IndexedDB database and the version we want to use.
+  // Create a connection to the database database and version we want to use.
   const contactDb = await openDB("contact_db", 1);
 
   // Create a new transaction and specify the store and data privileges.
@@ -37,6 +39,7 @@ export const getDb = async () => {
   console.log("result.value", result);
   return result;
 };
+
 // EXPORTED CREATE function
 
 // Export a function we will use to POST to the database.
